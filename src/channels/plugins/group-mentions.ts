@@ -316,3 +316,23 @@ export function resolveBlueBubblesGroupToolPolicy(
     accountId: params.accountId,
   });
 }
+
+export function resolveWeChatGroupRequireMention(params: GroupMentionParams): boolean {
+  return resolveChannelGroupRequireMention({
+    cfg: params.cfg,
+    channel: "wechat",
+    groupId: params.groupId,
+    accountId: params.accountId,
+  });
+}
+
+export function resolveWeChatGroupToolPolicy(
+  params: GroupMentionParams,
+): GroupToolPolicyConfig | undefined {
+  return resolveChannelGroupToolsPolicy({
+    cfg: params.cfg,
+    channel: "wechat",
+    groupId: params.groupId,
+    accountId: params.accountId,
+  });
+}
