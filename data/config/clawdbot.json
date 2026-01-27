@@ -16,5 +16,12 @@
         "name": "Clawdbot GLM"
       }
     ]
+  },
+  "plugins": {
+    "entries": {
+      "whatsapp": {
+        "enabled": true
+      }
+    }
   }
 }
