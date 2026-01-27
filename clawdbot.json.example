@@ -1,0 +1,138 @@
+{
+  // Clawdbot Docker 部署配置示例
+  // 将此文件复制为 data/config/clawdbot.json 并根据需要修改
+
+  // ========================================
+  // Agent 配置
+  // ========================================
+  agents: {
+    // 默认 agent 设置
+    defaults: {
+      // 模型配置 - 使用 Z.AI GLM-4.7
+      model: {
+        // 主要模型 (推理和对话)
+        primary: "zai/glm-4.7",
+
+        // 快速模型 (简单任务)
+        fast: "zai/glm-4.7",
+
+        // 长上下文模型 (长文档处理)
+        long: "zai/glm-4.7"
+      },
+
+      // 工作空间目录
+      workspace: "/home/node/clawd",
+
+      // 最大 token 数 (根据 GLM-4.7 限制调整)
+      maxTokens: 128000,
+
+      // 温度参数 (0-1, 越高越随机)
+      temperature: 0.7
+    },
+
+    // Agent 列表
+    list: [
+      {
+        // Agent ID
+        id: "main",
+
+        // Agent 显示名称
+        name: "Clawdbot GLM",
+
+        // Agent 描述
+        description: "基于 Z.AI GLM-4.7 模型的智能助手",
+
+        // 启用的通道
+        channels: ["whatsapp", "telegram", "discord"],
+
+        // 群聊配置
+        groupChat: {
+          // 是否需要 @ 提及才响应
+          requireMention: true,
+
+          // 提及前缀
+          mentionPrefix: "@"
+        }
+      }
+    ]
+  },
+
+  // ========================================
+  // 通道配置
+  // ========================================
+  channels: {
+    // WhatsApp 配置
+    whatsapp: {
+      // 允许发送的号码 (白名单)
+      // 留空表示允许所有号码
+      allowFrom: [],
+
+      // 群组配置
+      groups: {
+        // 默认群组设置
+        "*": {
+          // 是否需要 @ 提及
+          requireMention: true,
+
+          // 提及前缀
+          mentionPrefix: "@"
+        }
+      }
+    },
+
+    // Telegram 配置
+    telegram: {
+      // 允许的用户 ID (白名单)
+      allowFrom: [],
+
+      // 群组/频道配置
+      groups: {
+        "*": {
+          requireMention: true
+        }
+      }
+    },
+
+    // Discord 配置
+    discord: {
+      // 服务器配置
+      guilds: {
+        "*": {
+          // 频道白名单
+          channels: [],
+
+          // 是否需要 @ 提及
+          requireMention: true
+        }
+      }
+    }
+  },
+
+  // ========================================
+  // 消息配置
+  // ========================================
+  messages: {
+    // 系统提示词
+    systemPrompt: "你是 Clawdbot，一个基于 Z.AI GLM-4.7 模型的智能助手。",
+
+    // 错误消息前缀
+    errorPrefix: "❌ ",
+
+    // 消息分隔符
+    delimiter: "---"
+  },
+
+  // ========================================
+  // 会话配置
+  // ========================================
+  session: {
+    // 会话类型 (per-sender: 每个发送者独立会话, shared: 共享会话)
+    type: "per-sender",
+
+    // 会话超时时间 (毫秒)
+    timeout: 3600000,
+
+    // 保存会话历史
+    saveHistory: true
+  }
+}
