@@ -1,0 +1,31 @@
+{
+  "8902e2fa8f936785066d2efe471aa5d62dca4bb0e144cd14661c00dcbad00c18": {
+    "deviceId": "8902e2fa8f936785066d2efe471aa5d62dca4bb0e144cd14661c00dcbad00c18",
+    "publicKey": "3Huu7rsxdKFELwFQ1iCbV8OwjuujZZAVeN5sPWTYFEM",
+    "platform": "Win32",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "clientId": "clawdbot-control-ui",
+    "clientMode": "webchat",
+    "remoteIp": "10.88.13.1",
+    "tokens": {
+      "operator": {
+        "token": "15831d2bd3d747fbb12ea6ff87e6429d",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing"
+        ],
+        "createdAtMs": 1769505293578
+      }
+    }
+  }
+}

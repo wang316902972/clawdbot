@@ -1,0 +1,20 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "lan",
+    "trustedProxies": ["10.88.13.1"]
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "zai/glm-4.7"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "name": "Clawdbot GLM"
+      }
+    ]
+  }
+}

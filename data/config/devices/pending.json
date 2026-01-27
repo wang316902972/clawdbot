@@ -1,0 +1,23 @@
+{
+  "f72a9b30-a7d7-423c-9f68-fe5afa881046": {
+    "requestId": "f72a9b30-a7d7-423c-9f68-fe5afa881046",
+    "deviceId": "8902e2fa8f936785066d2efe471aa5d62dca4bb0e144cd14661c00dcbad00c18",
+    "publicKey": "3Huu7rsxdKFELwFQ1iCbV8OwjuujZZAVeN5sPWTYFEM",
+    "platform": "Win32",
+    "clientId": "clawdbot-control-ui",
+    "clientMode": "webchat",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "remoteIp": "10.88.13.1",
+    "silent": false,
+    "isRepair": false,
+    "ts": 1769505053589
+  }
+}
