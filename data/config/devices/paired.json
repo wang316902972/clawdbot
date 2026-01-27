@@ -14,7 +14,7 @@
     ],
     "clientId": "clawdbot-control-ui",
     "clientMode": "webchat",
-    "remoteIp": "10.88.13.1",
+    "remoteIp": "192.168.136.224",
     "tokens": {
       "operator": {
         "token": "15831d2bd3d747fbb12ea6ff87e6429d",
@@ -24,7 +24,8 @@
           "operator.approvals",
           "operator.pairing"
         ],
-        "createdAtMs": 1769505293578
+        "createdAtMs": 1769505293578,
+        "lastUsedAtMs": 1769527074219
       }
     }
   }
