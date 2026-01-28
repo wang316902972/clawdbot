@@ -18,6 +18,9 @@ services:
     volumes:
       - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
       - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
+      # Skills 和 Extensions 目录映射，实现动态修改即时生效
+      - ${CLAWDBOT_SKILLS_DIR:-./skills}:/home/node/clawdbot/skills
+      - ${CLAWDBOT_EXTENSIONS_DIR:-./extensions}:/home/node/clawdbot/extensions
     init: true
     restart: unless-stopped
     command:
@@ -49,6 +52,9 @@ services:
     volumes:
       - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
       - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
+      # Skills 和 Extensions 目录映射，实现动态修改即时生效
+      - ${CLAWDBOT_SKILLS_DIR:-./skills}:/home/node/clawdbot/skills
+      - ${CLAWDBOT_EXTENSIONS_DIR:-./extensions}:/home/node/clawdbot/extensions
     stdin_open: true
     tty: true
     init: true
