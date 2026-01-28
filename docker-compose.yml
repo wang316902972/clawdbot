@@ -6,9 +6,14 @@ services:
       HOME: /home/node
       TERM: xterm-256color
       CLAWDBOT_GATEWAY_TOKEN: ${CLAWDBOT_GATEWAY_TOKEN}
+      # 使用宿主机网络上的代理地址（127.0.0.1 在 host 模式下指向宿主机）
       HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
       HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
       NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Node.js 全局代理配置（确保 Baileys 使用代理）
+      GLOBAL_AGENT_HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
       # Z.AI / GLM 模型配置
       ZAI_API_KEY: ${ZAI_API_KEY}
       # Claude.ai 会话配置 (可选)
@@ -40,9 +45,14 @@ services:
       HOME: /home/node
       TERM: xterm-256color
       BROWSER: echo
-      HTTP_PROXY: ${HTTP_PROXY:-http://192.168.136.223:7897}
-      HTTPS_PROXY: ${HTTPS_PROXY:-http://192.168.136.223:7897}
+      # 使用宿主机网络上的代理地址
+      HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
       NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Node.js 全局代理配置
+      GLOBAL_AGENT_HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
       # Z.AI / GLM 模型配置
       ZAI_API_KEY: ${ZAI_API_KEY}
       # Claude.ai 会话配置 (可选)
