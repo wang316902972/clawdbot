@@ -16,7 +16,7 @@ const QRCode = QRCodeModule as unknown as QRCodeConstructor;
 const QRErrorCorrectLevel = QRErrorCorrectLevelModule as Record<string, unknown>;
 
 function createQrMatrix(input: string) {
-  const qr = new QRCode(-1, QRErrorCorrectLevel.L);
+  const qr = new QRCode(-1, QRErrorCorrectLevel.M);
   qr.addData(input);
   qr.make();
   return qr;
@@ -103,7 +103,7 @@ export async function renderQrPngBase64(
   input: string,
   opts: { scale?: number; marginModules?: number } = {},
 ): Promise<string> {
-  const { scale = 6, marginModules = 4 } = opts;
+  const { scale = 10, marginModules = 4 } = opts;
   const qr = createQrMatrix(input);
   const modules = qr.getModuleCount();
   const size = (modules + marginModules * 2) * scale;

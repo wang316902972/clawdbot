@@ -1,0 +1,15 @@
+{
+  "id": "wechat",
+  "name": "WeChat",
+  "description": "WeChat channel plugin",
+  "version": "2026.1.25",
+  "homepage": "https://github.com/clawdbot/clawdbot",
+  "license": "MIT",
+  "author": "Clawdbot Contributors",
+  "keywords": ["clawdbot", "plugin", "channel", "wechat", "wechaty"],
+  "clawdbot": {
+    "extensionType": "channel",
+    "platforms": ["node"],
+    "minVersion": "2026.1.0"
+  }
+}

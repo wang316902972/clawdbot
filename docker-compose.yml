@@ -1,19 +1,31 @@
 services:
   clawdbot-gateway:
     image: ${CLAWDBOT_IMAGE:-clawdbot:local}
+    network_mode: host
     environment:
       HOME: /home/node
       TERM: xterm-256color
       CLAWDBOT_GATEWAY_TOKEN: ${CLAWDBOT_GATEWAY_TOKEN}
+      # 使用宿主机网络上的代理地址（127.0.0.1 在 host 模式下指向宿主机）
+      HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Node.js 全局代理配置（确保 Baileys 使用代理）
+      GLOBAL_AGENT_HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Z.AI / GLM 模型配置
+      ZAI_API_KEY: ${ZAI_API_KEY}
+      # Claude.ai 会话配置 (可选)
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
     volumes:
       - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
       - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
-    ports:
-      - "${CLAWDBOT_GATEWAY_PORT:-18789}:18789"
-      - "${CLAWDBOT_BRIDGE_PORT:-18790}:18790"
+      # Skills 和 Extensions 目录映射，实现动态修改即时生效
+      - ${CLAWDBOT_SKILLS_DIR:-./skills}:/home/node/clawdbot/skills
+      - ${CLAWDBOT_EXTENSIONS_DIR:-./extensions}:/home/node/clawdbot/extensions
     init: true
     restart: unless-stopped
     command:
@@ -33,12 +45,26 @@ services:
       HOME: /home/node
       TERM: xterm-256color
       BROWSER: echo
+      # 使用宿主机网络上的代理地址
+      HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Node.js 全局代理配置
+      GLOBAL_AGENT_HTTP_PROXY: ${HTTP_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_HTTPS_PROXY: ${HTTPS_PROXY:-http://127.0.0.1:7897}
+      GLOBAL_AGENT_NO_PROXY: ${NO_PROXY:-localhost,127.0.0.1}
+      # Z.AI / GLM 模型配置
+      ZAI_API_KEY: ${ZAI_API_KEY}
+      # Claude.ai 会话配置 (可选)
       CLAUDE_AI_SESSION_KEY: ${CLAUDE_AI_SESSION_KEY}
       CLAUDE_WEB_SESSION_KEY: ${CLAUDE_WEB_SESSION_KEY}
       CLAUDE_WEB_COOKIE: ${CLAUDE_WEB_COOKIE}
     volumes:
       - ${CLAWDBOT_CONFIG_DIR}:/home/node/.clawdbot
       - ${CLAWDBOT_WORKSPACE_DIR}:/home/node/clawd
+      # Skills 和 Extensions 目录映射，实现动态修改即时生效
+      - ${CLAWDBOT_SKILLS_DIR:-./skills}:/home/node/clawdbot/skills
+      - ${CLAWDBOT_EXTENSIONS_DIR:-./extensions}:/home/node/clawdbot/extensions
     stdin_open: true
     tty: true
     init: true
