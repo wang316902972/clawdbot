@@ -142,7 +142,7 @@ export async function startWebLoginWithQr(
     () => {
       rejectQr?.(new Error("Timed out waiting for WhatsApp QR"));
     },
-    Math.max(opts.timeoutMs ?? 30_000, 5000),
+    Math.max(opts.timeoutMs ?? 60_000, 5000),
   );
 
   let sock: WaSocket;
@@ -224,7 +224,7 @@ export async function waitForWebLogin(
       message: "The login QR expired. Ask me to generate a new one.",
     };
   }
-  const timeoutMs = Math.max(opts.timeoutMs ?? 120_000, 1000);
+  const timeoutMs = Math.max(opts.timeoutMs ?? 180_000, 1000);
   const deadline = Date.now() + timeoutMs;
 
   while (true) {
