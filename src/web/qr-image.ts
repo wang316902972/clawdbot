@@ -103,7 +103,7 @@ export async function renderQrPngBase64(
   input: string,
   opts: { scale?: number; marginModules?: number } = {},
 ): Promise<string> {
-  const { scale = 6, marginModules = 4 } = opts;
+  const { scale = 10, marginModules = 4 } = opts;
   const qr = createQrMatrix(input);
   const modules = qr.getModuleCount();
   const size = (modules + marginModules * 2) * scale;
