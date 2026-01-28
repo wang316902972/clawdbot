@@ -114,7 +114,7 @@ export async function createWaSocket(
     version,
     logger,
     printQRInTerminal: false,
-    browser: ["clawdbot", "cli", VERSION],
+    browser: ["Clawdbot", "Chrome", VERSION],
     syncFullHistory: false,
     markOnlineOnConnect: false,
   });

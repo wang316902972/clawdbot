@@ -46,7 +46,7 @@ export async function loginWeb(
         console.log(success("✅ Linked after restart; web session ready."));
         return;
       } finally {
-        setTimeout(() => retry.ws?.close(), 500);
+        setTimeout(() => retry.ws?.close(), 1000);
       }
     }
     if (code === DisconnectReason.loggedOut) {
@@ -73,6 +73,6 @@ export async function loginWeb(
       } catch {
         // ignore
       }
-    }, 500);
+    }, 1000);
   }
 }
