@@ -1,13 +1,15 @@
 {
-  "gateway": {
-    "mode": "local",
-    "bind": "lan",
-    "trustedProxies": ["10.88.13.1"]
-  },
   "agents": {
     "defaults": {
       "model": {
         "primary": "zai/glm-4.7"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      },
+      "compaction": {
+        "mode": "safeguard"
       }
     },
     "list": [
@@ -17,12 +19,18 @@
       }
     ]
   },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
   "channels": {
     "telegram": {
       "enabled": true,
       "dmPolicy": "open",
-      "allowFrom": ["*"],
       "botToken": "8555861779:AAFBmKInq9ZgGGaxqFXb6Zs6f_TRVLdAzu8",
+      "allowFrom": [
+        "*"
+      ],
       "groupPolicy": "allowlist",
       "streamMode": "partial"
     },
@@ -32,6 +40,13 @@
       "groupPolicy": "allowlist",
       "streamMode": "partial"
     }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "lan",
+    "trustedProxies": [
+      "10.88.13.1"
+    ]
   },
   "plugins": {
     "entries": {
@@ -45,5 +60,12 @@
         "enabled": true
       }
     }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.1.25",
+    "lastTouchedAt": "2026-01-30T14:11:59.219Z"
   }
 }
