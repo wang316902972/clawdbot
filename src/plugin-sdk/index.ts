@@ -339,21 +339,6 @@ export { collectWhatsAppStatusIssues } from "../channels/plugins/status-issues/w
 // Channel: BlueBubbles
 export { collectBlueBubblesStatusIssues } from "../channels/plugins/status-issues/bluebubbles.js";
 
-// Channel: WeChat
-export {
-  listWeChatAccountIds,
-  resolveDefaultWeChatAccountId,
-  resolveWeChatAccount,
-  type ResolvedWeChatAccount,
-} from "../wechat/accounts.js";
-export { isWeChatGroupTarget, isWeChatUserTarget, normalizeWeChatTarget } from "../wechat/normalize.js";
-export { wechatOnboardingAdapter } from "../channels/plugins/onboarding/wechat.js";
-export { WeChatConfigSchema } from "../config/zod-schema.wechat.js";
-export {
-  looksLikeWeChatTargetId,
-  normalizeWeChatMessagingTarget,
-} from "../channels/plugins/normalize/wechat.js";
-
 // Channel: LINE
 export {
   listLineAccountIds,

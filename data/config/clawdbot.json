@@ -33,12 +33,6 @@
       ],
       "groupPolicy": "allowlist",
       "streamMode": "partial"
-    },
-    "wechat": {
-      "enabled": true,
-      "dmPolicy": "pairing",
-      "groupPolicy": "allowlist",
-      "streamMode": "partial"
     }
   },
   "gateway": {
@@ -54,9 +48,6 @@
         "enabled": true
       },
       "telegram": {
-        "enabled": true
-      },
-      "wechat": {
         "enabled": true
       }
     }
