@@ -28,5 +28,35 @@
         "lastUsedAtMs": 1769527458192
       }
     }
+  },
+  "fef28695a8f97ade8d90d555f1785438905e153019962b75251f1efcc798ab47": {
+    "deviceId": "fef28695a8f97ade8d90d555f1785438905e153019962b75251f1efcc798ab47",
+    "publicKey": "CBg9I5dSs9oSTH-Xa2Gak_sHri4d8J1k8xwHp46JoSg",
+    "platform": "Linux x86_64",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "clientId": "clawdbot-control-ui",
+    "clientMode": "webchat",
+    "remoteIp": "192.168.136.224",
+    "tokens": {
+      "operator": {
+        "token": "a7K3m9Q2vG8pL4zR6nT1kJ5eS0hW2xX9cB4dY7uF3sD8gH1jK6lP0qZ5mN2rA9",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing"
+        ],
+        "createdAtMs": 1769775132747,
+        "lastUsedAtMs": 1769775132747
+      }
+    }
   }
 }

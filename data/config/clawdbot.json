@@ -17,9 +17,22 @@
       }
     ]
   },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "dmPolicy": "open",
+      "allowFrom": ["*"],
+      "botToken": "8555861779:AAFBmKInq9ZgGGaxqFXb6Zs6f_TRVLdAzu8",
+      "groupPolicy": "allowlist",
+      "streamMode": "partial"
+    }
+  },
   "plugins": {
     "entries": {
       "whatsapp": {
+        "enabled": true
+      },
+      "telegram": {
         "enabled": true
       }
     }

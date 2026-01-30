@@ -7,9 +7,10 @@
   "license": "MIT",
   "author": "Clawdbot Contributors",
   "keywords": ["clawdbot", "plugin", "channel", "wechat", "wechaty"],
-  "clawdbot": {
-    "extensionType": "channel",
-    "platforms": ["node"],
-    "minVersion": "2026.1.0"
+  "channels": ["wechat"],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
   }
 }
