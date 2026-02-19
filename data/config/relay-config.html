@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenClaw Browser Relay - 配置</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #f5f5f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #1a73e8;
+        margin-top: 0;
+      }
+      .form-group {
+        margin: 20px 0;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: monospace;
+      }
+      .token-box {
+        background: #f8f9fa;
+        border: 2px solid #1a73e8;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 14px;
+        word-break: break-all;
+        cursor: pointer;
+        user-select: all;
+      }
+      .token-box:hover {
+        background: #e8f0fe;
+      }
+      .button {
+        background: #1a73e8;
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+      }
+      .button:hover {
+        background: #1557b0;
+      }
+      .success {
+        color: #28a745;
+        font-weight: bold;
+      }
+      .info {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 20px 0;
+      }
+      code {
+        background: #f1f3f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔧 OpenClaw Browser Relay 配置</h1>
+
+      <div class="info">
+        <strong>说明：</strong>这个页面显示配置信息，你需要在 Chrome 扩展的选项页面中填写这些信息。
+      </div>
+
+      <div class="form-group">
+        <label>Relay Server URL:</label>
+        <input type="text" value="ws://127.0.0.1:18792" readonly />
+        <button onclick="copyUrl()">复制 URL</button>
+      </div>
+
+      <div class="form-group">
+        <label>Gateway Token (点击复制):</label>
+        <div
+          class="token-box"
+          onclick="
+            this.select();
+            document.execCommand('copy');
+          "
+          title="点击复制"
+        >
+          a7K3m9Q2vG8pL4zR6nT1kJ5eS0hW2xX9cB4dY7uF3sD8gH1jK6lP0qZ5mN2rA9
+        </div>
+      </div>
+
+      <div class="info">
+        <strong>配置步骤：</strong>
+        <ol>
+          <li>点击 Chrome 工具栏的拼图图标 🧩</li>
+          <li>找到 <strong>"OpenClaw Browser Relay"</strong></li>
+          <li>点击右侧的 <strong>"详细信息"</strong></li>
+          <li>向下滚动，找到 <strong>"扩展程序选项"</strong></li>
+          <li>
+            或直接访问: <code>chrome://extensions/</code> → 找到插件 → 详细信息 → 扩展程序选项
+          </li>
+        </ol>
+      </div>
+
+      <div class="info">
+        <strong>在选项页面填写：</strong>
+        <ul>
+          <li><strong>Relay Server URL:</strong> <code>ws://127.0.0.1:18792</code></li>
+          <li><strong>Gateway Token:</strong> 点击上方的 Token 框复制</li>
+          <li>点击 <strong>Save</strong> 或 <strong>保存</strong></li>
+        </ul>
+      </div>
+
+      <button class="button" onclick="testConnection()">🔍 测试连接</button>
+      <button class="button" onclick="window.close()">关闭</button>
+
+      <div id="result" style="margin-top: 20px"></div>
+    </div>
+
+    <script>
+      function copyUrl() {
+        const url = document.querySelector("input[type='text']");
+        url.select();
+        document.execCommand("copy");
+        alert("URL 已复制!");
+      }
+
+      async function testConnection() {
+        const result = document.getElementById("result");
+        result.innerHTML = "正在测试连接...";
+
+        try {
+          const response = await fetch("http://localhost:18789/api/health");
+          if (response.ok) {
+            result.innerHTML = "<div class='success'>✅ Gateway 连接正常!</div>";
+          } else {
+            result.innerHTML = "⚠️ Gateway 响应异常";
+          }
+        } catch (error) {
+          result.innerHTML = "❌ 无法连接到 Gateway: " + error.message;
+        }
+      }
+    </script>
+  </body>
+</html>

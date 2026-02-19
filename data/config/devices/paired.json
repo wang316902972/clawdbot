@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "devices": {
+    "95b2e7cdf8c4fc5416b4e7378c20ac821f7fd765cd79700a172ed3fac6f1a047": {
+      "deviceId": "95b2e7cdf8c4fc5416b4e7378c20ac821f7fd765cd79700a172ed3fac6f1a047",
+      "displayName": "null",
+      "platform": "linux",
+      "role": "operator",
+      "roles": ["operator"],
+      "scopes": ["operator.admin", "operator.approvals", "operator.pairing"],
+      "publicKey": "Q_LbYxMNIrkuAKogoN8bYMKWkaVN2UG_dqjWzE09ptQ",
+      "pairedAt": 1770657577789,
+      "pairedIp": "192.168.136.224"
+    }
+  }
+}

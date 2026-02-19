@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>如何找到插件配置页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 20px auto; padding: 20px; background: #f5f5f5; }
+        .card { background: white; padding: 20px; margin: 10px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #1a73e8; }
+        .step { background: #e3f2fd; padding: 15px; margin: 15px 0; border-radius: 5px; border-left: 4px solid #1a73e8; }
+        .highlight { background: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 15px 0; }
+        button { background: #1a73e8; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { background: #1557b0; }
+        code { background: #f1f3f4; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 如何找到插件配置页面</h1>
+    
+    <div class="card">
+        <h2>方法 1: 通过扩展页面（推荐）</h2>
+        <div class="step">
+            1. 在当前页面（chrome://extensions/）中<br>
+            2. 找到 <strong>"OpenClaw Browser Relay"</strong><br>
+            3. 点击扩展卡片查看更多信息<br>
+            4. 寻找以下按钮之一：
+               <ul>
+                   <li>🔧 <strong>"详细信息"</strong></li>
+                   <li>⚙️ <strong>"选项"</strong></li>
+                   <li>或者点击 <strong>⋯</strong> (更多) 按钮</li>
+               </ul>
+        </div>
+        <button onclick="window.open("chrome://extensions/", "_blank")>打开扩展页面</button>
+    </div>
+
+    <div class="card">
+        <h2>方法 2: 通过工具栏</h2>
+        <div class="step">
+            1. 查看 Chrome 工具栏右侧<br>
+            2. 找到拼图图标 🧩<br>
+            3. 点击该图标<br>
+            4. 右键 → 选择 <strong>"选项"</strong>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>配置信息</h2>
+        <div class="highlight">
+            <strong>Relay Server URL:</strong><br>
+            <code>ws://127.0.0.1:18792</code><br><br>
+            <strong>Gateway Token:</strong><br>
+            <code style="font-size: 12px; user-select: all;">a7K3m9Q2vG8pL4zR6nT1kJ5eS0hW2xX9cB4dY7uF3sD8gH1jK6lP0qZ5mN2rA9</code>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>直接测试连接</h2>
+        <button onclick="testConnection()">🔍 测试 Gateway 连接</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testConnection() {
+            const result = document.getElementById("result");
+            result.innerHTML = "测试中...";
+            try {
+                const resp = await fetch("http://localhost:18789");
+                result.innerHTML = "<div style=color:
