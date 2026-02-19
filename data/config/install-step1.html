@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OpenClaw 插件安装指南 - 步骤 1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 30px;
+        background: #f0f2f5;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #1a73e8;
+        border-bottom: 3px solid #1a73e8;
+        padding-bottom: 10px;
+      }
+      .step {
+        background: #f8f9fa;
+        border-left: 5px solid #1a73e8;
+        padding: 20px;
+        margin: 20px 0;
+      }
+      .step-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      .instruction {
+        background: white;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      .highlight {
+        background: #fff3cd;
+        padding: 15px;
+        border-left: 4px solid #ffc107;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+      .path-box {
+        background: #2d2d2d;
+        color: #4ec9b0;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 14px;
+        word-break: break-all;
+        margin: 10px 0;
+      }
+      .number {
+        background: #1a73e8;
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      button {
+        background: #1a73e8;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px 5px;
+      }
+      .success {
+        color: #28a745;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .warning {
+        color: #dc3545;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 OpenClaw 插件安装 - 步骤 1</h1>
+
+      <div class="step">
+        <div class="step-title">📍 当前页面说明</div>
+        <div class="instruction">
+          你现在在 <strong>chrome://extensions/</strong> 页面<br />
+          这个页面列出了所有已安装的 Chrome 扩展
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">1️⃣ 开启开发者模式</div>
+        <div class="instruction">
+          <p>
+            在页面<strong>右上角</strong>，找到开关：<br />
+            <strong>☐ 开发者模式</strong><br />
+            点击它，变成：<br />
+            <strong>☑ 开发者模式</strong>
+          </p>
+        </div>
+        <div class="highlight">⚠️ 开启后会显示额外的按钮</div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">2️⃣ 点击"加载已解压的扩展程序"</div>
+        <div class="instruction">
+          开启开发者模式后，页面会出现新按钮<br />
+          找到并点击：<br />
+          <strong>📂 加载已解压的扩展程序</strong><br />
+          <em>Load unpacked</em>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">3️⃣ 选择插件目录</div>
+        <div class="instruction">
+          文件选择对话框会打开<br />
+          需要导航到以下路径并选择文件夹：
+        </div>
+        <div class="path-box">/home/node/.openclaw/chrome-extensions/openclaw-browser-relay</div>
+        <div class="instruction">
+          <p>步骤：</p>
+          <ol>
+            <li>点击左侧的 <strong>/</strong> (根目录)</li>
+            <li>找到并点击 <strong>home</strong></li>
+            <li>进入 <strong>node</strong></li>
+            <li>进入 <strong>.openclaw</strong></li>
+            <li>进入 <strong>chrome-extensions</strong></li>
+            <li>选择 <strong>openclaw-browser-relay</strong> 文件夹</li>
+            <li>点击 <strong>选择文件夹</strong> (Select Folder)</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-title">4️⃣ 确认安装</div>
+        <div class="instruction">
+          如果成功，你会看到：
+          <ul>
+            <li>✅ <strong>OpenClaw Browser Relay</strong> 出现在扩展列表中</li>
+            <li>✅ 显示插件描述和图标</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="highlight">
+        ⚠️ 如果看到错误"扩展程序无效"，请确认选择了正确的文件夹：<br />
+        <strong>openclaw-browser-relay</strong> (里面包含 manifest.json 文件)
+      </div>
+
+      <div style="text-align: center; margin-top: 30px">
+        <button onclick="window.close()">关闭此指南</button>
+      </div>
+    </div>
+  </body>
+</html>
