@@ -79,7 +79,8 @@ export function evaluateMissingDeviceIdentity(params: {
   if (params.hasDeviceIdentity) {
     return { kind: "allow" };
   }
-  if (params.isControlUi && params.trustedProxyAuthOk) {
+  // Allow Control UI bypass when dangerouslyDisableDeviceAuth is configured
+  if (params.isControlUi && params.controlUiAuthPolicy.allowBypass) {
     return { kind: "allow" };
   }
   if (params.isControlUi && !params.controlUiAuthPolicy.allowBypass) {

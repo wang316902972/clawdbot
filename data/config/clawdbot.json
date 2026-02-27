@@ -10,7 +10,7 @@
     "profiles": {
       "openclaw": {
         "cdpPort": 18792,
-        "driver": "chromedriver",
+        "driver": "extension",
         "color": "#FF4500"
       }
     }

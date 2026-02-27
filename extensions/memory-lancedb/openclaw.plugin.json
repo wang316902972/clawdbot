@@ -13,6 +13,11 @@
       "placeholder": "text-embedding-3-small",
       "help": "OpenAI embedding model to use"
     },
+    "embedding.baseURL": {
+      "label": "API Base URL",
+      "placeholder": "https://api.openai.com/v1",
+      "help": "Custom base URL for OpenAI-compatible API (e.g., Azure, Ollama, Together AI, Yunwu AI)"
+    },
     "dbPath": {
       "label": "Database Path",
       "placeholder": "~/.openclaw/memory/lancedb",
@@ -47,6 +52,9 @@
           "model": {
             "type": "string",
             "enum": ["text-embedding-3-small", "text-embedding-3-large"]
+          },
+          "baseURL": {
+            "type": "string"
           }
         },
         "required": ["apiKey"]
